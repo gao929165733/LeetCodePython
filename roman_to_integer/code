@@ -1,0 +1,25 @@
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        sum = 0
+        convert = {'M':1000, 'D':500, 'C':100, 'L':50, 'X':10, 'V':5, 'I':1}
+        # 每次都将当前字符与后一个字符相比
+        for i in range(len(s)-1):
+            # 如果小的字符在大的字符前面 就先减去小的字符
+            if convert[s[i]] < convert[s[i+1]]:
+                sum = sum - convert[s[i]]
+            # 如果顺序正确 就加上字符所对应的值
+            else:
+                sum = sum + convert[s[i]]
+        # 加上最后一个字符
+        sum = sum + convert[s[-1]]
+        return sum
+        
+if __name__ == '__main__':
+    s = Solution()
+    text = "MCMXCIV"
+    result = s.romanToInt(text)
+    print(result)
