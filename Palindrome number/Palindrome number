@@ -1,0 +1,17 @@
+class Solution:
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        x_str = str(x)
+        x_restr = x_str[::-1]
+        if x_str == x_restr:
+            return True
+        else:
+            return False
+if __name__ == "__main__":
+    x = 121
+    s = Solution()
+    result = s.isPalindrome(x)
+    print(result)
