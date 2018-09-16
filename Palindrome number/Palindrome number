@@ -4,10 +4,14 @@ class Solution:
         :type x: int
         :rtype: bool
         """
+        # 把数字转化为字符串
         x_str = str(x)
+        # 取反
         x_restr = x_str[::-1]
+        # 如果正反相等则是回文数
         if x_str == x_restr:
             return True
+        # 否则不是
         else:
             return False
 if __name__ == "__main__":
