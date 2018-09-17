@@ -1,0 +1,18 @@
+"""
+    os.path.commonprefix(strs) 返回字符串数组中的最长公共前缀
+"""
+
+import os
+class Solution:
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        return os.path.commonprefix(strs)
+        
+if __name__ == '__main__':
+    s = Solution()
+    text = ["flower","flow","flight"]
+    result = s.longestCommonPrefix(text)
+    print(result)
