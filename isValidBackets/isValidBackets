@@ -1,0 +1,29 @@
+class Solution:
+
+    def isValid(self, s):
+        # 如果是奇数括号 则false
+        if len(s) % 2 == 1:
+            return False
+        d = {'{': '}', '[': ']', '(': ')'}
+        stack = []
+        for i in s:
+            # 左括号,入栈
+            if i in d:
+                stack.append(i)
+            # 右括号
+            else:
+                # 栈空或者栈顶元素不为匹配的括号 则false
+                if not stack or d[stack.pop()] != i:
+                    return False
+        else:
+            # 栈不空 则false
+            if stack:
+                return False
+        return True
+
+
+if __name__ == '__main__':
+    s = Solution()
+text = "[]{}])"
+result = s.isValid(text)
+print(result)
