@@ -1,0 +1,26 @@
+class Solution:
+    
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        # 按元素长度顺序升序排列
+        strs.sort(key=lambda x: len(x))
+        # 最短字符串
+        print(strs)
+        shortest_str = strs[0]
+        # 最短字符串的长度
+        shortest_str_len = len(shortest_str)
+        for i in range(shortest_str_len):
+            for one_str in strs:
+                if shortest_str[i] != one_str[i]:
+                    return shortest_str[:i]
+                    break
+
+
+if __name__ == '__main__':
+    s = Solution()
+    text = ["flower", "flow", "floight"]
+    result = s.longestCommonPrefix(text)
+    print(result)
